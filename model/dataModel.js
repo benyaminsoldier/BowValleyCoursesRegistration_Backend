@@ -1,5 +1,5 @@
 import sql from 'mssql'
-import {poolPromise} from '../config/dbConnection'
+import {poolPromise} from '../config/dbConnection.js'
 
 export const FindUser = async (username) => {
     const pool = await poolPromise; 
@@ -8,7 +8,7 @@ export const FindUser = async (username) => {
     const result = await pool
       .request()
       .input('username', sql.VarChar, username)
-      .query('SELECT * FROM Users WHERE username = @username');
+      .query('SELECT * FROM [User] WHERE username = @username');
   
     return result.recordset[0];               // Return the first user found (or undefined if not found)
   };

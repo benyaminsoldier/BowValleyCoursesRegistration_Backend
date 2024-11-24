@@ -1,6 +1,7 @@
 import express from 'express'
-import * as dataModel from '../model/dataModel'
+import * as Controls from '../controller/controls.js'
 
-const router = express.router()
+export const router = express.Router()
 
-router.post('/login', loginUser)
+router.post('/login', Controls.LoginUser)
+//router.post('/signIn', Controls.SignInUser)
